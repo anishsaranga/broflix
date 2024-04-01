@@ -4,22 +4,26 @@ import API_KEY from '../API_KEY'
 
 function CategoryItems({category}) {
 
+    // image url without setting the width param
     const image_url = `https://image.tmdb.org/t/p/`
 
     const request_urls = {
         popular: `https://api.themoviedb.org/3/movie/popular` + `?api_key=${API_KEY}`,
         top_rated: `https://api.themoviedb.org/3/movie/top_rated` + `?api_key=${API_KEY}`,
         upcoming: `https://api.themoviedb.org/3/movie/upcoming` + `?api_key=${API_KEY}`,
-        trending: `https://api.themoviedb.org/3/trending/movie/day` + `?api_key=${API_KEY}`
+        trending: `https://api.themoviedb.org/3/trending/movie/day` + `?api_key=${API_KEY}`,
+        trending_tv: `https://api.themoviedb.org/3/trending/tv/week` + `?api_key=${API_KEY}`,
+        popular_tv: `https://api.themoviedb.org/3/tv/popular` + `?api_key=${API_KEY}`,
+        top_rated_tv: `https://api.themoviedb.org/3/tv/top_rated` + `?api_key=${API_KEY}`
     }
 
     // to store response
-    const [movies, setMovies] = useState([]);
+    const [data, setData] = useState([]);
     // load at component render once
     useEffect(() => {
         fetch(request_urls[category])
         .then((response) => response.json())
-        .then((data) => setMovies(data.results))
+        .then((res) => setData(res.results))
     }, [])
 
         //{ console.log(`${category}`, movies);}
@@ -29,7 +33,10 @@ function CategoryItems({category}) {
         popular: "Popular",
         top_rated: "Top Rated",
         upcoming: "Upcoming",
-        trending: "Trending"
+        trending: "Trending",
+        trending_tv: "Trending in TV",
+        popular_tv: "Popular in TV",
+        top_rated_tv: "Top Rated in TV"
     }
 
   return (
@@ -41,9 +48,10 @@ function CategoryItems({category}) {
         {/* Add left button */}
         {/* movie cards */}
         {
-            movies.map((movie) => (
-                <Card backdrop_path={image_url+'w400'+movie.backdrop_path} key={movie.id}
-                    title={movie.title} vote_average={movie.vote_average}/>
+            data.map((item) => (
+                <Card backdrop_path={image_url+'w400'+item.backdrop_path} key={item.id}
+                    title={item.title ? item.title : item.name} vote_average={item.vote_average}/>
+                    // movie has title and tv has name attribute
                 
             ))
         }
@@ -56,9 +64,9 @@ function CategoryItems({category}) {
         {/* Add left button */}
         {/* movie cards */}
         {
-            movies.map((movie) => (
-                <Card backdrop_path={image_url+'w300'+movie.backdrop_path} key={movie.id}
-                    title={movie.title} vote_average={movie.vote_average}/>
+            data.map((item) => (
+                <Card backdrop_path={image_url+'w300'+item.backdrop_path} key={item.id}
+                    title={item.title ? item.title : item.name} vote_average={item.vote_average}/>
                 
             ))
         }
