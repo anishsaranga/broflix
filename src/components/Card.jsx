@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FaImdb } from "react-icons/fa";
 
 
-function MovieCard({title, vote_average, backdrop_path}) {
+function Card({title, vote_average, backdrop_path}) {
 
     const [showText, setShowText] = useState(false);
 
@@ -32,4 +32,4 @@ function MovieCard({title, vote_average, backdrop_path}) {
   )
 }
 
-export default MovieCard
+export default Card

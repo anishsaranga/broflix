@@ -10,15 +10,15 @@ function Navbar() {
 
   return (
     <>
-    <div className='shadow-lg bg-slate-950 sticky top-0 flex flex-nowrap justify-items-center items-center m-2 z-[100] w-full h-full'>
+    <div className='shadow-lg bg-slate-950 sticky top-0 left-0 flex flex-nowrap justify-items-center items-center z-[100] w-full h-full'>
         {/* Logo */}
         <Link to="/"><img src="/BROFLIX.png" 
         className='h-12 p-1 mx-2 my-2 bg-slate-950 hover:cursor-pointer' 
         alt='<Broflix Logo here>'/>
         </Link>
         {/* Movies and TV shows buttons */}
-        <Link to="/movies" button="true" className='text-white hover:text-red-600 duration-150 ml-5 mr-3'>Movies</Link>
-        <button className='text-white hover:text-red-600 duration-150 m-3'>TV shows</button>
+        <Link to="/movies" button="true" className='text-white hover:text-red-600 duration-150 ml-5 mr-3 hidden md:block'>Movies</Link>
+        <Link to="/" button="true" className='text-white hover:text-red-600 duration-150 m-3 hidden md:block'>TV shows</Link>
         
         {/* Search bar + dark/light mode toggle */}
         <span className='ml-auto mr-8 flex flex-row items-center'>
