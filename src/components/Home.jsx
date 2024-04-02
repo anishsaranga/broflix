@@ -18,12 +18,12 @@ function Home() {
       <div className='w-full h-1 p-10 mt-auto border-b-4 border-red-600 opacity-45 rounded-full'></div>
     </div>
     <CategoryItems category={"popular"} />
-    <CategoryItems category={"top_rated"} />
     <CategoryItems category={"trending"} />
+    <CategoryItems category={"top_rated"} />
     <CategoryItems category={"popular_tv"} />
     <CategoryItems category={"trending_tv"} />
     <CategoryItems category={"top_rated_tv"} />
-
+    <div className="hidden md:block"></div>
     </>
   )
 }
