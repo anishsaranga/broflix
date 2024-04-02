@@ -9,14 +9,14 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import MoviesPage, { moviesPageLoader } from "./components/MoviesPage";
+import MoviesPage, { getMovieGenres } from "./components/MoviesPage";
 import SearchPage from "./components/SearchPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route path="" element={<Home />} />
-      <Route loader={moviesPageLoader} path="movies" element={<MoviesPage />} />
+      <Route loader={getMovieGenres} path="movies" element={<MoviesPage />} />
       <Route path="search/:term" element={<SearchPage />} />
     </Route>
   )
