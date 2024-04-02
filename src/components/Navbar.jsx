@@ -1,12 +1,19 @@
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
 import { IoSearchOutline } from "react-icons/io5";
 // routing stuff
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Navbar() {
 
-    const searchTerm = useRef('')
+    //  store route path
+    const [searchTerm, setSearchTerm] = useState('')
+    // useHistory to route based on enter event
+    // useHIstory is now useNavigate
+    const navigate = useNavigate()
 
+    const routeToSearch = () => {
+      navigate('search/'+searchTerm)
+    }
 
   return (
     <>
@@ -23,9 +30,29 @@ function Navbar() {
         {/* Search bar + dark/light mode toggle */}
         <span className='ml-auto mr-8 flex flex-row items-center'>
             <input type="text" 
-            ref={searchTerm}
-            className='bg-gray-500 rounded-full focus:outline-red-700 focus:border-red-700 focus:border-4 h-10 w-auto text-stone-50 p-3 m-3'/>
-            <IoSearchOutline button="true" size={32} color='white' className='hover:cursor-pointer'/>
+            className='bg-gray-500 rounded-full focus:outline-red-700 focus:border-red-700 focus:border-4 h-10 w-auto text-stone-50 p-3 m-3'
+            // onchange setting the current value in search field to the searchTerm var
+            onChange={(e) => setSearchTerm(e.target.value)}
+            // if enter key is pressed route based on useHistory
+            onKeyDown={(e) => {
+              if(e.key === "Enter"){
+                routeToSearch()
+              }
+            }}/>
+
+              <Link
+              to={'search/' + searchTerm}
+              // to={{
+              //   pathname: "search/" + searchTerm,
+              //   state: searchTerm
+              // }}
+              >
+                <IoSearchOutline 
+                button="true" 
+                size={32} 
+                color='white' 
+                className='hover:cursor-pointer'/>
+              </Link>
         </span>
     </div>
     </>
