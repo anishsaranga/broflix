@@ -36,6 +36,10 @@ function SearchPage() {
 
   return (
     <>
+    <div className='my-10 text-center p-1 md:text-start border-sm md:ml-16 md:mr-auto'>
+        <span className='text-red-700 text-xl md:text-2xl'>Search Results for - </span> 
+        <span className='text-stone-300 text-2xl md:text-4xl'>{term}</span>
+    </div>
     {/* for small screens */}
     <div className='md:hidden'>
         <div className='flex flex-wrap justify-center my-10 p-1'>
