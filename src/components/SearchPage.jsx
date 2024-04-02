@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import API_KEY, { bearer_token } from '../API_KEY'
+import { bearer_token } from '../API_KEY'
 import Card from './Card'
+
 
 function SearchPage() {
     // this variable name should be same as captured in route.. else won't work
@@ -37,8 +38,19 @@ function SearchPage() {
   return (
     <>
     <div className='my-10 text-center p-1 md:text-start border-sm md:ml-16 md:mr-auto'>
-        <span className='text-red-700 text-xl md:text-2xl'>Search Results for - </span> 
-        <span className='text-stone-300 text-2xl md:text-4xl'>{term}</span>
+        {console.log(data)}
+        {
+        data?.length != 0 ? 
+            <div>
+                <span className='text-red-700 text-xl md:text-2xl'>Search Results for - </span> 
+                <span className='text-stone-300 text-2xl md:text-4xl'>{term}</span>
+            </div>
+        :
+            <div className='items-baseline'>
+                <span className='text-red-700 text-xl md:text-3xl'>Sorry - </span> 
+                <span className='text-stone-300 text-2xl md:text-4xl'> No results found</span>
+            </div>
+        }
     </div>
     {/* for small screens */}
     <div className='md:hidden'>
@@ -51,6 +63,7 @@ function SearchPage() {
                     vote_average={item.vote_average}
                     backdrop_path={image_url + width_300 + item.backdrop_path}/>
                 ))
+                // If no results found
             }
         </div>
 
