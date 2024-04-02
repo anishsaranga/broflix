@@ -21,7 +21,7 @@ function Card({title, vote_average, backdrop_path}) {
                         <span className='flex justify-between items-center'>
                         <FaImdb color='gold' size={25}/> 
                         <span className='ml-2'>
-                            {Math.round(vote_average).toFixed(1)}
+                            {vote_average.toFixed(1)}
                         </span>
                         </span>
                     </span>
