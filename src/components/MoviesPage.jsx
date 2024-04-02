@@ -7,31 +7,18 @@ function MoviesPage() {
   const genresData = useLoaderData();
   return (
     <>
-      <div className="text-stone-200 text-center text-2xl md:text-4xl mt-4">
+      <div className="text-stone-200 text-center text-2xl md:text-4xl mt-4 hidden md:block">
         Movies
       </div>
-      <div className="w-full h-1 p-10 mt-2 border-b-4 border-red-600 opacity-45 rounded-full"></div>
+      <div className="w-full h-9 p-15 mt-2 border-b-4 border-red-600 opacity-45 my-2 rounded-full hidden md:block"></div>
 
       {/* big screens */}
-      <div className="hidden md:block">
-        <div className="flex flex-col justify-center mx-10 my-10">
+      <div className="md:block">
+        <div className="flex flex-col justify-center mx-5 md:mx-10 my-5 md:my-10">
           {genresData.map((_genre) => (
             <GenreItems
               key={_genre.id}
               genreId={_genre.id}
-              type="movie"
-              name={_genre.name}
-            />
-          ))}
-        </div>
-      </div>
-      {/* small screens */}
-      <div className="md:hidden">
-        <div className="flex flex-col justify-center mx-5 my-5">
-          {genresData.map((_genre) => (
-            <GenreItems
-              key={_genre.id}
-              genre={_genre.id}
               type="movie"
               name={_genre.name}
             />

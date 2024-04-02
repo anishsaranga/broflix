@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 // routing stuff
 import { Link, useNavigate } from "react-router-dom";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 function Navbar() {
   //  store route path
@@ -56,9 +57,7 @@ function Navbar() {
             }}
           />
 
-          <Link
-            to={"search/" + searchTerm}
-          >
+          <Link to={"search/" + searchTerm}>
             <IoSearchOutline
               button="true"
               size={32}
@@ -66,6 +65,10 @@ function Navbar() {
               className="hover:cursor-pointer"
             />
           </Link>
+          {/* menu for small screens */}
+          <div className="ml-5 hover:cursor-pointer">
+            <RxHamburgerMenu color="white" size={30} button="true" />
+          </div>
         </span>
       </div>
     </>

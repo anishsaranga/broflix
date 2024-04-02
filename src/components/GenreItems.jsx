@@ -12,7 +12,7 @@ function GenreItems({ genreId, type, name }) {
   // data urls
   const movieUrl = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreId}`;
 
-  const tvUrl = `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&without_genres=${genreId}`;
+  const tvUrl = `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreId}`;
   const options = {
     method: "GET",
     headers: {
@@ -39,7 +39,7 @@ function GenreItems({ genreId, type, name }) {
 
   return (
     <div>
-      <h1 className="text-white font-semibold text-2xl md:text-3xl shadow-md text-left mx-10 mt-5 mb-3">
+      <h1 className="text-white font-semibold text-3xl md:text-3xl shadow-md text-left mx-4 md:mx-10 mt-5 mb-3">
         {name}
       </h1>
       <div className="flex flex-nowrap overflow-scroll scrollbar-hide px-4 mb-16">
