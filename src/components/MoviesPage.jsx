@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom'
 import Card from './Card'
-import API_KEY from '../API_KEY'
+import API_KEY, { bearer_token } from '../API_KEY'
 
 
 function MoviesPage() {
