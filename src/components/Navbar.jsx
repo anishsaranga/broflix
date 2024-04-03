@@ -12,7 +12,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   const routeToSearch = () => {
-    navigate("search/" + searchTerm);
+    searchTerm && navigate("search/" + searchTerm);
   };
 
   return (
@@ -51,20 +51,19 @@ function Navbar() {
             onChange={(e) => setSearchTerm(e.target.value)}
             // if enter key is pressed route based on useHistory
             onKeyDown={(e) => {
-              if (e.key === "Enter") {
+              if (e.key === "Enter" && searchTerm != "") {
                 routeToSearch();
               }
             }}
           />
 
-          <Link to={"search/" + searchTerm}>
-            <IoSearchOutline
-              button="true"
-              size={32}
-              color="white"
-              className="hover:cursor-pointer"
-            />
-          </Link>
+          <IoSearchOutline
+            button="true"
+            size={32}
+            color="white"
+            className="hover:cursor-pointer"
+            onClick={routeToSearch}
+          />
           {/* menu for small screens */}
           <div className="ml-5 hover:cursor-pointer">
             <RxHamburgerMenu color="white" size={30} button="true" />
