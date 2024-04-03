@@ -42,14 +42,14 @@ function GenreItems({ genreId, type, name }) {
       <h1 className="text-white font-semibold text-3xl md:text-3xl shadow-md text-left mx-4 md:mx-10 mt-5 mb-3">
         {name}
       </h1>
-      <div className="flex flex-nowrap overflow-scroll scrollbar-hide px-4 mb-16">
+      <div className="flex flex-nowrap overflow-scroll scrollbar-hide px-4 mb-4">
         {data &&
           data.map((data_item) => (
             <>
               <div className="hidden md:block">
                 <Card
                   key={data_item.id}
-                  title={data_item.title}
+                  title={data_item.title ? data_item.title : data_item.name}
                   vote_average={data_item.vote_average}
                   backdrop_path={imageUrl + width_400 + data_item.backdrop_path}
                 />
@@ -57,7 +57,7 @@ function GenreItems({ genreId, type, name }) {
               <div className="md:hidden">
                 <Card
                   key={data_item.id}
-                  title={data_item.title}
+                  title={data_item.title ? data_item.title : data_item.name}
                   vote_average={data_item.vote_average}
                   backdrop_path={imageUrl + width_300 + data_item.backdrop_path}
                 />
