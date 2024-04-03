@@ -15,7 +15,7 @@ import TvPage, { getTvGenres } from "./components/TvPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
+    <Route path="/broflix/" element={<Layout />}>
       <Route path="" element={<Home />} />
       <Route loader={getMovieGenres} path="movies" element={<MoviesPage />} />
       <Route loader={getTvGenres} path="tv" element={<TvPage />} />
