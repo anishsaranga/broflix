@@ -70,7 +70,7 @@ function CategoryItems({ category }) {
       </div>
 
       <div className="md:hidden">
-        <div className="flex flex-row flex-nowrap overflow-scroll scrollbar-hide px-4 mb-16">
+        <div className="flex flex-row flex-nowrap overflow-scroll scrollbar-hide px-4 mb-4">
           {/* Add left button */}
           {/* movie cards */}
           {data.map((item) => (

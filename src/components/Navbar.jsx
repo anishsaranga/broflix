@@ -35,7 +35,7 @@ function Navbar() {
           Movies
         </Link>
         <Link
-          to="/"
+          to="/tv"
           button="true"
           className="text-white hover:text-red-600 duration-150 m-3 hidden md:block"
         >
