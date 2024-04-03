@@ -60,12 +60,7 @@ function SearchPage() {
           {
             data &&
               data.map((item) => (
-                <Card
-                  key={item.id}
-                  title={item.title}
-                  vote_average={item.vote_average}
-                  backdrop_path={image_url + width_300 + item.backdrop_path}
-                />
+                <Card key={item.id} title={item.title} itemObj={item} />
               ))
             // If no results found
           }
@@ -77,12 +72,7 @@ function SearchPage() {
         <div className="flex flex-wrap justify-center my-10 p-1">
           {data &&
             data.map((item) => (
-              <Card
-                key={item.id}
-                title={item.title}
-                vote_average={item.vote_average}
-                backdrop_path={image_url + width_400 + item.backdrop_path}
-              />
+              <Card key={item.id} title={item.title} itemObj={item} />
             ))}
         </div>
       </div>

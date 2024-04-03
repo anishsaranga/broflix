@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaImdb } from "react-icons/fa";
 
-function Card({ title, vote_average, backdrop_path }) {
+// itemObj added for click-functionality (in the selected page, title etc. should be populated kada)
+function Card({ backdrop_path, itemObj }) {
   const [showText, setShowText] = useState(false);
+  const [itemTitle, setItemTitle] = useState(null);
+
+  useEffect(
+    () => setItemTitle(itemObj.title ? itemObj.title : itemObj.name),
+    []
+  );
+
+  // route to selected movie/ tv page
 
   return (
     <>
@@ -20,10 +29,10 @@ function Card({ title, vote_average, backdrop_path }) {
         />
         {showText && (
           <span className="text-white absolute align-middle p-5 m-auto bottom-5 text-2xl font-medium font-sans flex md:w-full justify-between ">
-            {title}
+            {itemTitle}
             <span className="flex justify-between items-center">
               <FaImdb color="gold" size={25} />
-              <span className="ml-2">{vote_average.toFixed(1)}</span>
+              <span className="ml-2">{itemObj.vote_average.toFixed(1)}</span>
             </span>
           </span>
         )}

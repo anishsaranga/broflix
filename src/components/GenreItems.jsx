@@ -49,16 +49,14 @@ function GenreItems({ genreId, type, name }) {
               <div className="hidden md:block">
                 <Card
                   key={data_item.id}
-                  title={data_item.title ? data_item.title : data_item.name}
-                  vote_average={data_item.vote_average}
+                  itemObj={data_item}
                   backdrop_path={imageUrl + width_400 + data_item.backdrop_path}
                 />
               </div>
               <div className="md:hidden">
                 <Card
                   key={data_item.id}
-                  title={data_item.title ? data_item.title : data_item.name}
-                  vote_average={data_item.vote_average}
+                  itemObj={data_item}
                   backdrop_path={imageUrl + width_300 + data_item.backdrop_path}
                 />
               </div>
