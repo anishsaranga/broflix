@@ -12,14 +12,28 @@ import {
 import MoviesPage, { getMovieGenres } from "./components/MoviesPage";
 import SearchPage from "./components/SearchPage.jsx";
 import TvPage, { getTvGenres } from "./components/TvPage.jsx";
+import WatchPage from "./components/WatchPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/broflix/" element={<Layout />}>
       <Route path="" element={<Home />} />
-      <Route loader={getMovieGenres} path="movies" element={<MoviesPage />} />
-      <Route loader={getTvGenres} path="tv" element={<TvPage />} />
-      <Route path="search/:term" element={<SearchPage />} />
+
+      <Route path="movies/">
+        <Route loader={getMovieGenres} path="" element={<MoviesPage />} />
+        <Route path="watch/:imdb_id" element={<WatchPage />} />
+      </Route>
+
+      <Route path="tv/">
+        <Route loader={getTvGenres} path="" element={<TvPage />} />
+        <Route path="watch/:imdb_id" element={<WatchPage />} />
+      </Route>
+
+      <Route path="search/:term">
+        <Route path="" element={<SearchPage />} />
+        <Route path="watch/:imdb_id" element={<WatchPage />} />
+      </Route>
+      <Route path="watch/:imdb_id" element={<WatchPage />} />
     </Route>
   )
 );

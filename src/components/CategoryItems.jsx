@@ -60,8 +60,7 @@ function CategoryItems({ category }) {
             <Card
               backdrop_path={image_url + "w400" + item.backdrop_path}
               key={item.id}
-              title={item.title ? item.title : item.name}
-              vote_average={item.vote_average}
+              itemObj={item}
             />
             // movie has title and tv has name attribute
           ))}
@@ -77,8 +76,7 @@ function CategoryItems({ category }) {
             <Card
               backdrop_path={image_url + "w300" + item.backdrop_path}
               key={item.id}
-              title={item.title ? item.title : item.name}
-              vote_average={item.vote_average}
+              itemObj={item}
             />
           ))}
           {/* Add right button */}

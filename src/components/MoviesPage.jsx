@@ -5,6 +5,7 @@ import GenreItems from "./GenreItems";
 
 function MoviesPage() {
   const genresData = useLoaderData();
+  console.log(typeof genresData);
   return (
     <>
       <div className="text-stone-200 text-center text-2xl md:text-4xl mt-4 hidden md:block">
@@ -15,14 +16,15 @@ function MoviesPage() {
       {/* big screens */}
       <div className="md:block">
         <div className="flex flex-col justify-center mx-5 md:mx-10 my-5 md:my-10">
-          {genresData.map((_genre) => (
-            <GenreItems
-              key={_genre.id}
-              genreId={_genre.id}
-              type="movie"
-              name={_genre.name}
-            />
-          ))}
+          {genresData &&
+            genresData.map((_genre) => (
+              <GenreItems
+                key={_genre.id}
+                genreId={_genre.id}
+                type="movie"
+                name={_genre.name}
+              />
+            ))}
         </div>
       </div>
     </>

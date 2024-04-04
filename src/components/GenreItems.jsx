@@ -45,24 +45,21 @@ function GenreItems({ genreId, type, name }) {
       <div className="flex flex-nowrap overflow-scroll scrollbar-hide px-4 mb-4">
         {data &&
           data.map((data_item) => (
-            <>
+            // changed location of key for good rendering
+            <div key={data_item.id}>
               <div className="hidden md:block">
                 <Card
-                  key={data_item.id}
-                  title={data_item.title ? data_item.title : data_item.name}
-                  vote_average={data_item.vote_average}
+                  itemObj={data_item}
                   backdrop_path={imageUrl + width_400 + data_item.backdrop_path}
                 />
               </div>
               <div className="md:hidden">
                 <Card
-                  key={data_item.id}
-                  title={data_item.title ? data_item.title : data_item.name}
-                  vote_average={data_item.vote_average}
+                  itemObj={data_item}
                   backdrop_path={imageUrl + width_300 + data_item.backdrop_path}
                 />
               </div>
-            </>
+            </div>
           ))}
       </div>
     </div>
