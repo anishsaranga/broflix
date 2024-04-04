@@ -59,6 +59,7 @@ function Navbar() {
               }
             }}
             size={width <= 768 ? 15 : 45}
+            placeholder="Search"
           />
 
           <IoSearchOutline
