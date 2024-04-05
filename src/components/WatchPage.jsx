@@ -14,6 +14,7 @@ function WatchPage() {
 
   const imageUrl = `https://image.tmdb.org/t/p/w500`;
 
+  console.log(itemObj);
   useEffect(() => {
     setItemObj(location.state);
   }, []);
@@ -21,8 +22,9 @@ function WatchPage() {
   const navigate = useNavigate();
   // onclick handling
   const stream = () => {
-    console.log("clicked");
-    navigate(`/broflix/stream/${imdb_id}`, { state: itemObj });
+    // if imdb_id is undefined, don't route
+    if (imdb_id !== "undefined")
+      navigate(`/broflix/stream/${imdb_id}`, { state: itemObj });
   };
 
   return (
