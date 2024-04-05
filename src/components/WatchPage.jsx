@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { FaPlay } from "react-icons/fa";
 
 function WatchPage() {
   // recieveing sent tmdb item obj
@@ -16,18 +18,32 @@ function WatchPage() {
     setItemObj(location.state);
   }, []);
 
-  console.log(location);
+  const navigate = useNavigate();
+  // onclick handling
+  const stream = () => {
+    console.log("clicked");
+    navigate(`/broflix/stream/${imdb_id}`, { state: itemObj });
+  };
+
   return (
     <>
       {/* left card (probably a watch button) right description and stuff */}
       <div className="flex flex-col md:flex-row justify-between items-center my-5 md:my-10 mx-2 md:mx-10">
-        <div>
+        <div className="flex flex-col md:flex-row justify center items-center">
           <img
             className="text-white"
             src={itemObj && imageUrl + itemObj.poster_path}
             alt="Poster unavailable at the moment..."
           />
-          {/* possible button goes here */}
+          {/* watch button */}
+          <button
+            class="bg-yellow-600 hover:bg-yellow-500 text-white font-semibold rounded-full h-full w-auto p-4 mx-4"
+            onClick={stream}
+          >
+            <div className="flex flex-row items-center justify-end">
+              Watch Now <FaPlay size={20} className="mx-2" />
+            </div>
+          </button>
         </div>
 
         <div className="m-1 md:m-3 p-1 md:p-3 max-w-full md:w-[45%]">
