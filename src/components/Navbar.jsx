@@ -20,7 +20,7 @@ function Navbar() {
   console.log(width);
   return (
     <>
-      <div className="shadow-lg bg-slate-950 sticky top-0 left-0 flex flex-nowrap justify-items-center items-center z-[100] w-full h-full">
+      <div className="shadow-lg bg-slate-950 sticky top-0 left-0 flex flex-nowrap justify-items-center items-center z-[100] max-w-full h-full">
         {/* Logo */}
         <Link to="/broflix/">
           <img
