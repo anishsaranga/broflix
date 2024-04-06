@@ -30,7 +30,7 @@ function WatchPage() {
   return (
     <>
       {/* left card (probably a watch button) right description and stuff */}
-      <div className="flex flex-col md:flex-row justify-between items-center my-5 md:my-10 mx-2 md:mx-10">
+      <div className="flex flex-col md:flex-row justify-between items-center my-5 md:my-10 mx-2 md:mx-10 max-w-full">
         <div className="flex flex-col md:flex-row justify center items-center">
           <img
             className="text-white"
@@ -43,7 +43,7 @@ function WatchPage() {
             onClick={stream}
           >
             <div className="flex flex-row items-center justify-end">
-              Watch Now <FaPlay size={20} className="mx-2" />
+              Watch Now <FaPlay size={20} className="mx-2 my-2" />
             </div>
           </button>
         </div>
