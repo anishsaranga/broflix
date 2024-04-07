@@ -23,8 +23,11 @@ function WatchPage() {
   // onclick handling
   const stream = () => {
     // if imdb_id is undefined, don't route
-    if (imdb_id !== "undefined")
-      navigate(`/broflix/stream/${imdb_id}`, { state: itemObj });
+    // if (imdb_id !== "undefined")
+    //   navigate(`/broflix/trailer/${imdb_id}`, { state: itemObj });
+    if (itemObj.title) {
+      navigate(`/broflix/trailer/${imdb_id}`, { state: itemObj });
+    }
   };
 
   return (
@@ -39,7 +42,7 @@ function WatchPage() {
           />
           {/* watch button */}
           <button
-            class="bg-yellow-600 hover:bg-yellow-500 text-white font-semibold rounded-full h-full w-auto p-4 mx-4"
+            className="bg-yellow-600 hover:bg-yellow-500 text-white font-semibold rounded-full h-full w-auto p-4 mx-4"
             onClick={stream}
           >
             <div className="flex flex-row items-center justify-end">
