@@ -14,6 +14,7 @@ import SearchPage from "./components/SearchPage.jsx";
 import TvPage, { getTvGenres } from "./components/TvPage.jsx";
 import WatchPage from "./components/WatchPage.jsx";
 import StreamPage from "./components/StreamPage.jsx";
+import TrailerPage from "./components/TrailerPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,8 +37,12 @@ const router = createBrowserRouter(
       </Route>
       <Route path="watch/:imdb_id" element={<WatchPage />} />
 
-      <Route path="stream/">
+      {/* <Route path="stream/">
         <Route path=":imdbIdObj" element={<StreamPage />} />
+      </Route> */}
+
+      <Route path="trailer/">
+        <Route path=":imdbIdObj" element={<TrailerPage />} />
       </Route>
     </Route>
   )
