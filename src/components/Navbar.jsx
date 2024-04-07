@@ -70,15 +70,14 @@ function Navbar() {
               placeholder="Search"
             />
 
-            <Link to={"search/" + searchTerm}>
-              <IoSearchOutline
-                button="true"
-                size={32}
-                color="white"
-                className="hover:cursor-pointer"
-                onClick={routeToSearch}
-              />
-            </Link>
+            <IoSearchOutline
+              button="true"
+              size={32}
+              color="white"
+              className="hover:cursor-pointer"
+              onClick={routeToSearch}
+            />
+
             {/* menu for small screens */}
             <div className="ml-5 hover:cursor-pointer md:hidden">
               {clicked ? (
